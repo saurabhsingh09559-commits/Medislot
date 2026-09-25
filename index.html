@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediSlot — Find the right doctor. Book online.</title>
+  <meta name="description" content="Search doctors and clinics by location, specialty or health concern, compare transparent information, and book an appointment online — no phone calls, no queues.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="components.css">
+  <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="site-header">
+    <nav class="navbar" aria-label="Main navigation">
+      <a href="index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 3C10 3 7 6.5 7 10.5C7 15 14 25 14 25C14 25 21 15 21 10.5C21 6.5 18 3 14 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M14 7.5V13.5M11 10.5H17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand-name">MediSlot</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="primaryMenu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-menu" id="primaryMenu">
+        <ul class="nav-links">
+          <li><a href="search.html">Find Doctors</a></li>
+          <li><a href="index.html#specialties">Specialties</a></li>
+          <li><a href="index.html#how-it-works">How It Works</a></li>
+          <li><a href="doctor-login.html">For Doctors</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="patient-dashboard.html" class="btn btn-ghost">Login</a>
+          <a href="search.html" class="btn btn-primary">Sign Up</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <h1 class="hero-title">Find the right doctor.<br>Book your appointment online.</h1>
+          <p class="hero-sub">Search by city, specialty or the concern you're dealing with. Compare fees, availability and verification before you decide — no calls, no waiting rooms.</p>
+
+          <form class="search-panel" id="heroSearchForm" role="search" aria-label="Search doctors">
+            <div class="search-field">
+              <label for="heroCity">City or area</label>
+              <input type="text" id="heroCity" name="city" placeholder="e.g. Noida, Sector 18" autocomplete="off">
+            </div>
+            <div class="search-divider" aria-hidden="true"></div>
+            <div class="search-field">
+              <label for="heroQuery">Doctor, specialty or health concern</label>
+              <input type="text" id="heroQuery" name="query" placeholder="e.g. Dermatologist, skin problem" autocomplete="off">
+            </div>
+            <button type="submit" class="btn btn-primary search-submit">Search Doctors</button>
+          </form>
+
+          <p class="hero-examples">
+            <span>Try:</span>
+            <button type="button" class="chip" data-example="Dermatologist">Dermatologist</button>
+            <button type="button" class="chip" data-example="Dentist">Dentist</button>
+            <button type="button" class="chip" data-example="Cardiologist">Cardiologist</button>
+            <button type="button" class="chip" data-example="Orthopedic">Orthopedic</button>
+            <button type="button" class="chip" data-example="Skin problems">Skin problems</button>
+          </p>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <span class="hero-blob"></span>
+
+          <div class="floating-card card-profile">
+            <div class="fc-top">
+              <span class="fc-avatar"></span>
+              <div class="fc-lines">
+                <span class="fc-line fc-line-lg"></span>
+                <span class="fc-line fc-line-sm"></span>
+              </div>
+            </div>
+            <span class="fc-badge">✓ Verified</span>
+            <div class="fc-slots">
+              <span class="fc-slot fc-slot-active">4:30 PM</span>
+              <span class="fc-slot">5:00 PM</span>
+              <span class="fc-slot">5:30 PM</span>
+            </div>
+          </div>
+
+          <div class="floating-card card-confirm">
+            <span class="fc-check">✓</span>
+            <div class="fc-lines">
+              <span class="fc-line fc-line-lg"></span>
+              <span class="fc-line fc-line-sm"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== POPULAR SPECIALTIES ===== -->
+    <section class="specialties" id="specialties">
+      <div class="container">
+        <h2 class="section-title">Popular specialties</h2>
+        <div class="specialty-grid" id="specialtyGrid">
+          <!-- populated by app.js from data.js; static fallback below -->
+          <a href="search.html?specialty=Dermatology" class="specialty-card">
+            <span class="specialty-icon" aria-hidden="true">🩺</span>
+            <span class="specialty-name">Dermatology</span>
+          </a>
+          <a href="search.html?specialty=Dentistry" class="specialty-card">
+            <span class="specialty-icon" aria-hidden="true">🦷</span>
+            <span class="specialty-name">Dentistry</span>
+          </a>
+          <a href="search.html?specialty=Cardiology" class="specialty-card">
+            <span class="specialty-icon" aria-hidden="true">❤️</span>
+            <span class="specialty-name">Cardiology</span>
+          </a>
+          <a href="search.html?specialty=Orthopedics" class="specialty-card">
+            <span class="specialty-icon" aria-hidden="true">🦴</span>
+            <span class="specialty-name">Orthopedics</span>
+          </a>
+          <a href="search.html?specialty=Pediatrics" class="specialty-card">
+            <span class="specialty-icon" aria-hidden="true">🧸</span>
+            <span class="specialty-name">Pediatrics</span>
+          </a>
+          <a href="search.html?specialty=Gynecology" class="specialty-card">
+            <span class="specialty-icon" aria-hidden="true">🌸</span>
+            <span class="specialty-name">Gynecology</span>
+          </a>
+          <a href="search.html?specialty=General+Physician" class="specialty-card">
+            <span class="specialty-icon" aria-hidden="true">⚕️</span>
+            <span class="specialty-name">General Physician</span>
+          </a>
+          <a href="search.html?specialty=ENT" class="specialty-card">
+            <span class="specialty-icon" aria-hidden="true">👂</span>
+            <span class="specialty-name">ENT</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section class="how-it-works" id="how-it-works">
+      <div class="container">
+        <h2 class="section-title">How it works</h2>
+        <ol class="steps">
+          <li class="step">
+            <span class="step-number">1</span>
+            <h3>Search</h3>
+            <p>Tell us your city and what you need — a specialty, a doctor's name, or simply how you're feeling.</p>
+          </li>
+          <li class="step">
+            <span class="step-number">2</span>
+            <h3>Compare</h3>
+            <p>See fees, qualifications, experience, verification status and real availability side by side.</p>
+          </li>
+          <li class="step">
+            <span class="step-number">3</span>
+            <h3>Choose a slot</h3>
+            <p>Pick a time that works for you from the doctor's actual open slots.</p>
+          </li>
+          <li class="step">
+            <span class="step-number">4</span>
+            <h3>Book</h3>
+            <p>Confirm your details and get instant confirmation. No phone calls required.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== TRUST SECTION ===== -->
+    <section class="trust">
+      <div class="container trust-grid">
+        <div class="trust-item">
+          <h3>Verified profiles</h3>
+          <p>Every doctor's qualifications and registration are checked before they appear as verified.</p>
+        </div>
+        <div class="trust-item">
+          <h3>Transparent information</h3>
+          <p>Fees, experience and availability are shown upfront — we never rank anyone as "the best."</p>
+        </div>
+        <div class="trust-item">
+          <h3>Easy online booking</h3>
+          <p>Real slots, booked in a few taps, with confirmation sent straight to you.</p>
+        </div>
+        <div class="trust-item">
+          <h3>No phone call needed</h3>
+          <p>Search, compare and book entirely from home, at any hour.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DOCTOR CTA ===== -->
+    <section class="doctor-cta">
+      <div class="container doctor-cta-inner">
+        <div>
+          <h2>Are you a doctor?</h2>
+          <p>Create your professional profile, set your own schedule, and manage appointments online — without depending on phone calls or front-desk staff.</p>
+        </div>
+        <a href="doctor-login.html" class="btn btn-secondary">Create your profile</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-name">MediSlot</span>
+        <p>Discover doctors and clinics, compare transparently, and book online.</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>Patients</h4>
+          <a href="search.html">Find Doctors</a>
+          <a href="patient-dashboard.html">My Appointments</a>
+        </div>
+        <div>
+          <h4>Doctors</h4>
+          <a href="doctor-login.html">Doctor Login</a>
+          <a href="doctor-dashboard.html">Doctor Dashboard</a>
+        </div>
+        <div>
+          <h4>Platform</h4>
+          <a href="admin-login.html">Admin</a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 MediSlot. This is a prototype — demo data only, not a live medical service.</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

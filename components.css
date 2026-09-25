@@ -1,0 +1,329 @@
+/* =========================================================
+   MediSlot — components.css
+   Reusable UI pieces: buttons, chips, specialty cards, badges.
+   Reads design tokens defined in style.css.
+   ========================================================= */
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-md);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary-dark));
+  color: #fff;
+  box-shadow: 0 1px 2px rgba(18, 59, 54, 0.15), 0 10px 20px -8px rgba(18, 59, 54, 0.45);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(18, 59, 54, 0.18), 0 16px 26px -8px rgba(18, 59, 54, 0.5);
+}
+
+.btn-secondary {
+  background: var(--color-accent);
+  color: var(--color-primary-dark);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08), 0 10px 20px -10px rgba(226, 166, 59, 0.6);
+}
+
+.btn-secondary:hover {
+  background: var(--color-accent-dark);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-ink);
+  border: 1px solid var(--color-border-strong);
+}
+
+.btn-ghost:hover {
+  background: var(--color-surface);
+  border-color: var(--color-primary);
+}
+
+.search-submit {
+  padding: var(--space-4) var(--space-6);
+}
+
+/* ---------- Chips ---------- */
+.chip {
+  font-size: var(--fs-xsmall);
+  font-weight: 500;
+  padding: 6px var(--space-3);
+  border-radius: 999px;
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface);
+  color: var(--color-muted);
+  transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.chip:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary-light);
+  transform: translateY(-1px);
+}
+
+/* ---------- Specialty cards ---------- */
+.specialty-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.specialty-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-primary-light);
+}
+
+.specialty-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--color-success-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+
+.specialty-name {
+  font-weight: 600;
+  color: var(--color-ink);
+  font-size: var(--fs-small);
+}
+
+/* ---------- Verification badge (reused across doctor cards/profiles later) ---------- */
+.badge-verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--fs-xsmall);
+  font-weight: 600;
+  color: var(--color-success);
+  background: var(--color-success-bg);
+  padding: 3px var(--space-2);
+  border-radius: 999px;
+}
+
+/* ---------- Toast notifications (created dynamically by app.js) ---------- */
+.toast-container {
+  position: fixed;
+  bottom: var(--space-5);
+  right: var(--space-5);
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  pointer-events: none;
+}
+
+.toast {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-ink);
+  font-size: var(--fs-small);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  max-width: 320px;
+}
+
+.toast-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast-success { border-left: 3px solid var(--color-success); }
+.toast-error   { border-left: 3px solid var(--color-error); }
+.toast-info    { border-left: 3px solid var(--color-primary); }
+
+/* ---------- Sort select ---------- */
+.sort-select {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-ink);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--fs-small);
+}
+
+/* ---------- Mobile filter button (hidden on desktop) ---------- */
+.mobile-filter-btn { display: none; }
+
+/* ---------- Unverified badge ---------- */
+.badge-unverified {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--fs-xsmall);
+  font-weight: 600;
+  color: var(--color-muted);
+  background: var(--color-warning-bg);
+  padding: 3px var(--space-2);
+  border-radius: 999px;
+}
+
+/* ---------- Doctor card ---------- */
+.doctor-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.doctor-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-primary-light);
+}
+
+.doctor-card-main {
+  display: flex;
+  gap: var(--space-4);
+  flex: 1;
+  min-width: 0;
+}
+
+.doctor-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary-dark));
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.doctor-info { min-width: 0; }
+
+.doctor-info-top {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.doctor-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+.doctor-specialty {
+  margin-top: 4px;
+  font-size: var(--fs-small);
+  color: var(--color-ink);
+}
+
+.doctor-meta {
+  margin-top: 4px;
+  font-size: var(--fs-xsmall);
+  color: var(--color-muted);
+}
+
+.doctor-clinic {
+  margin-top: var(--space-2);
+  font-size: var(--fs-small);
+  color: var(--color-muted);
+}
+
+.doctor-card-side {
+  text-align: right;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-2);
+}
+
+.doctor-fee {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.doctor-fee span {
+  display: block;
+  font-size: var(--fs-xsmall);
+  font-weight: 400;
+  color: var(--color-muted);
+}
+
+.doctor-slot {
+  font-size: var(--fs-xsmall);
+  font-weight: 600;
+  color: var(--color-success);
+}
+
+.doctor-slot-none {
+  color: var(--color-muted);
+  font-weight: 400;
+}
+
+.doctor-card-actions {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.btn-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ---------- Skeleton loading card ---------- */
+.skeleton-card {
+  height: 132px;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.skeleton-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+  transform: translateX(-100%);
+  animation: skeleton-shimmer 1.4s infinite;
+}
+
+@keyframes skeleton-shimmer {
+  100% { transform: translateX(100%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-card::after { animation: none; }
+}
